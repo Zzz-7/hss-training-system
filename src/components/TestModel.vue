@@ -95,7 +95,7 @@
 
             </div>
           </div>
-          <div class="listTypeMis questionType" v-if="judgmentQuestionList">
+          <div class="listTypeMis questionType" v-if="judgmentQuestionList != ''">
             <div class="disandati">
               <h4 class="dati_title">四.判断题</h4>
               <div class="di5" id="di5" v-for="(itemlistTyperadio,index3) in judgmentQuestionList" :key="index3">
@@ -118,6 +118,38 @@
                       <el-radio label="B">
                         <span class="A">B</span>
                         错误
+                      </el-radio>
+                    </p>
+                  </el-radio-group>
+                </div>
+                <div class="Answer" v-show="Showparse">答案:<span>{{itemlistTyperadio.answer}}</span></div>
+                <div class="parse" v-show="Showparse"><span class="parsespan1">解析:</span><p class="parsespan2" v-html="itemlistTyperadio.parse==''?'无':itemlistTyperadio.parse"></p></div>
+              </div>
+            </div>
+          </div>
+          <div class="listTypeMis questionType" v-if="operationQuestionList != ''">
+            <div class="disandati">
+              <h4 class="dati_title">五.操作题</h4>
+              <div class="di6" id="di6" v-for="(itemlistTyperadio,index5) in operationQuestionList" :key="index5">
+                <h5 class="title">
+                  <span style="float: left;display: inline-block;">{{index5+1}}.</span>
+                  <span style="display: inline-block;" v-html="itemlistTyperadio.question" :id="'di6'+index5"></span>
+                </h5>
+                <div class="xx">
+                  <el-radio-group
+                    v-model="input.trueOrfalse[itemlistTyperadio.id]"
+                    size="small"
+                  >
+                    <p class="p">
+                      <el-radio label="A">
+                        <span class="A">A</span>
+                        完成
+                      </el-radio>
+                    </p>
+                    <p class="p">
+                      <el-radio label="B">
+                        <span class="A">B</span>
+                        未完成
                       </el-radio>
                     </p>
                   </el-radio-group>
@@ -183,6 +215,18 @@
                   :href="'#di5'+index3"
                   :title="'点击跳到判断题的第'+(index3+1)+'题'"
                 >{{index3+1}}</a>
+              </div>
+            </div>
+            <div v-if="operationQuestionList != ''">
+              <h4 class="dati_title" style="margin-top: 15px;">五.操作题</h4>
+              <div class="dtk_xx">
+                <a class="span1 xx_span5"
+                   v-for="(itemlistTyperadio, index5) in operationQuestionList"
+                   :class="input.trueOrfalse[itemlistTyperadio.id] == null ? '' : 'color1' + ' ' + itemlistTyperadio.id"
+                   :key="index5"
+                   :href="'#di6'+index5"
+                   :title="'点击跳到操作题的第' + (index5 + 1) + '题'"
+                >{{index5 + 1}}</a>
               </div>
             </div>
           </div>
@@ -286,10 +330,11 @@ export default {
       progress:'',//用于本书检测出现20%等情况
 
 
-      singleChoiceList:[], //单选题
+      singleChoiceList: [], //单选题
       completionList: [], //填空题
       judgmentQuestionList: [], //判断题
-      multipleChoiceQuestionList:[],//多选题
+      multipleChoiceQuestionList: [],//多选题
+      operationQuestionList: [],
       // userId:'',
       mes:'',
     };
@@ -359,6 +404,8 @@ export default {
             this.completionList = value.questionList
           }else if(value.questionType==4){
             this.multipleChoiceQuestionList = value.questionList
+          }else if(value.questionType==5){
+            this.operationQuestionList = value.questionList
           }
           value.questionList.forEach((value,index)=>{
             this.questionList.push(value)
@@ -440,16 +487,11 @@ export default {
             }
             this.quizResult.push({questionId: questionId,result: this.result,});
           } else if (this.questionList[i].questionType == 2) {
-            console.log(questionId);
-            console.log(this.input);
-            console.log(this.answer);
             if (this.input.trueOrfalse[questionId] == this.answer.trueOrfalse[questionId]) {
-              console.log("正确");
               this.great++;
               this.result = true;
               $("a"+"." + questionId).addClass("right");
             } else {
-              console.log("错误");
               this.passNum++;
               this.result = false;
               $("a"+"." + questionId).addClass("worng");
@@ -468,6 +510,19 @@ export default {
               $("a"+"." + index).addClass("worng");
             }
             index ++
+            this.quizResult.push({questionId: questionId,result: this.result,});
+          } else if(this.questionList[i].questionType == 5){
+            console.log(this.input.trueOrfalse[questionId]);
+            console.log(this.answer.trueOrfalse[questionId]);
+            if (this.input.trueOrfalse[questionId] == this.answer.trueOrfalse[questionId]) {
+              this.great++;
+              this.result = true;
+              $("a"+"." + questionId).addClass("right");
+            } else {
+              this.passNum++;
+              this.result = false;
+              $("a"+"." + questionId).addClass("worng");
+            }
             this.quizResult.push({questionId: questionId,result: this.result,});
           }
         }
@@ -526,6 +581,11 @@ export default {
           var index = 0
           this.answer.radios[index] = this.questionList[i].answer;
           index ++
+        }
+        // 提取操作题
+        if (this.questionList[i].questionType == 5) {
+          this.answer.trueOrfalse[questionId] = 'A';
+          this.MisquestionNum++;
         }
       }
       this.Totalquestion =this.radioqueestionNum + this.InputqueestionNum + this.MisquestionNum; //计算所有空的个数
