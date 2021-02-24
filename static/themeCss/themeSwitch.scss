@@ -1,0 +1,699 @@
+/*男孩主题样式*/
+
+.themeBoy {
+    $backgroundSize:100% 100%;
+    $transparent:transparent;
+    $colorWhite:#00D2FF;
+    $box-shadow:none;
+    $hoverColor:#00E4FF;
+    .bodyHome{
+        background: url('../assets/themeBoy/index_background_image.png');
+        background-size: $backgroundSize;
+        .header{
+            background: $transparent;
+            .head_main{
+                background: $transparent;
+                .mit_book{
+                    .icon_book{
+                        background: url('../assets/themeBoy/index_icon_errorbook.png');
+                        background-size: $backgroundSize;
+                    }
+                    .name{
+                        color: $colorWhite;
+                    }
+                    .personalCenter{
+                        ul{
+                            box-shadow:$box-shadow;
+                        }
+                    }
+                }
+                .mit_book,.report_book{
+                    &:hover{
+                        background: url('../assets/themeBoy/functionBtn_hover.png');
+                        background-size: 100% 60px;
+                        background-repeat: no-repeat;
+                        background-position: center;
+                        border-top: 0;
+                    }
+                    .personalCenter{
+                        overflow: hidden;
+                        ul{
+                            box-shadow:$box-shadow;
+                            background: #086DAF;
+                            li{
+                                span{
+                                    color: #00E4FF;
+                                }
+                                &:hover{
+                                    background: rgba($color: #ffffff, $alpha: 0.2);
+                                }
+                                .icon_glodList{
+                                    background: url('../assets/themeBoy/index_icon_ranklist_blue.png');
+                                }
+                                .icon_glodMall{
+                                    background: url('../assets/themeBoy/index_icon_shoppingmall_blue.png');
+                                }
+                                .icon_communication{
+                                    background: url('../assets/themeBoy/index_icon_interaction.png');
+                                }
+                                .icon_feedBack{
+                                    background: url('../assets/themeBoy/index_icon_feedback_blue.png');
+                                }
+                                .icon_classDynamic{
+                                    background: url('../assets/themeBoy/index_icon_classstate.png');
+                                }
+                                .icon_loginReward{
+                                    background: url('../assets/themeBoy/index_icon_loginaward_blue.png');
+                                }
+                                .icon_mitbook{
+                                    background: url('../assets/themeBoy/index_icon_mistickBook_blue.png');
+                                }
+                                .icon_reportbook{
+                                    background: url('../assets/themeBoy/index_icon_learnSport_blue.png');
+                                }
+                                .icon_honer{
+                                    background: url('../assets/themeBoy/index_icon_myhonor_blue.png');
+                                }
+                                .icon_userInfo{
+                                    background: url('../assets/themeBoy/index_icon_personalData_blue.png');
+                                }
+                                .icon_collection{
+                                    background: url('../assets/themeBoy/index_icon_collection_blue.png');
+                                }
+                            }
+                        }
+                    }
+                }
+                .clickDown{
+                    border-top: 0;
+                }
+                .report_book{
+                    .icon_report{
+                        background: url('../assets/themeBoy/index_icon_report.png');
+                        background-size: $backgroundSize;
+                    }
+                    .name{
+                        color: $colorWhite;
+                    }
+                }
+                .close{
+                    padding: 0 14px;
+                }
+                .info_pic{
+                    padding: 0 15px;
+                }
+                .close,.info_pic{
+                    height: 60px;
+                    width: 60px;
+                    line-height: 60px;
+                    position: relative;
+                    top: 5px;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    .icon_close{
+                        top:0px;
+                        background: url('../assets/themeBoy/index_icon_close.png');
+                        background-size: $backgroundSize;
+                        background-repeat: no-repeat;
+                    }
+                    img{
+                        margin-top: 0;
+                    }
+                    &:hover{
+                        background: url('../assets/themeBoy/close_hover.png');
+                        background-size: $backgroundSize;
+                        border-top: 0;
+                    }
+                }
+                .logo{
+                    div{
+                        background: url('../assets/themeBoy/logo.png');
+                        background-size: 100% 100%;
+                        width: 151px;
+                        height: 27px;
+                    }
+                }
+            }
+        }
+        .center_top{
+            background: url('../assets/themeBoy/head_background_image.png');
+            background-size: $backgroundSize;
+            box-shadow:$box-shadow;
+            .kc,.gdkc,.kcjd,.center_top_right{
+                color: $colorWhite;
+                & span:hover {
+                    color: $hoverColor;
+                }
+            }
+            .gdkc{
+                &:hover{
+                    color: $hoverColor;
+                }
+            }
+            .gdkc:hover~i.toggle_icon {
+                background: url("../assets/themeBoy/index_icon_toggle_hover.png");
+                background-size: $backgroundSize;
+            }
+            .toggle_icon{
+                background: url('../assets/themeBoy/index_icon_toggle_normal.png');
+                background-size: $backgroundSize;
+            }
+            .jdt{
+                background: rgba($color: #fff, $alpha: 0.2);
+                .jdted{
+                    background: #00C0FF;
+                }
+            }
+            .changekecheng{
+                box-shadow: $box-shadow;
+                background: #086DAF;
+                ul{
+                    li{
+                        span{
+                            color: $colorWhite;
+                        }
+                        &:hover{
+                            background: rgba($color: #fff, $alpha: 0.2);
+                            span{
+                                color: $hoverColor;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        .center_left{
+            background: url('../assets/themeBoy/study_background_image.png');
+            background-size: $backgroundSize;
+            box-shadow:$box-shadow;
+            .title{
+                color: $colorWhite;
+            }
+            .xx_top{
+                .xx_top_left{
+                    .xx_top_left_title{
+                        color: $colorWhite;
+                    }
+                    .toggle_icon{
+                        background: url('../assets/themeBoy/index_icon_toggle_normal.png');
+                        background-size: $backgroundSize;
+                    }
+                }
+                .xx_top_right{
+                    span{
+                        color: $colorWhite;
+                        &:hover{
+                            color: $hoverColor;
+                        }
+                    }
+                }
+                .xx_top_aside {
+                    box-shadow: $box-shadow;
+                    background: #086DAF;
+                    ul{
+                        li{
+                            .text{
+                                color: $colorWhite;
+                            }
+                            &:hover{
+                                background: rgba($color: #fff, $alpha: 0.2);
+                                .text{
+                                    color: $hoverColor;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            .section_left{
+                border-right: 1px solid rgba($color: #00C0FF, $alpha: 0.2);
+                .xz_li{
+                    .text{
+                        color: $colorWhite;
+                    }
+                }
+                .xz_li{
+                    &:hover{
+                        background: rgba($color: #fff, $alpha: 0.2);
+                        .text{
+                            color: $hoverColor;
+                        }
+                    }
+                }
+                .sectionselected{
+                    background: rgba($color: #fff, $alpha: 0.2);
+                    .text{
+                        color: $hoverColor;
+                    }
+                }
+            }
+            .section_right{
+                .xx_center_top{
+                    .xx_top_left_title{
+                        color: $colorWhite;
+                    }
+                }
+                .con1,.con2,.con3{
+                    background: url('../assets/themeBoy/index_basicsty_image_blue.png');
+                    background-size: $backgroundSize;
+                    box-shadow:$box-shadow;
+                    .con_div_top{
+                        span{
+                            color: $colorWhite !important;
+                        }
+                    }
+                    &:hover{
+                        transform: scale(1);
+                        background: url('../assets/themeBoy/index_basicsty_image_blue_hover.png');
+                        background-size: $backgroundSize;
+                    }
+                }
+                .con1{
+                    .jczx_pic{
+                        background: url('../assets/themeBoy/index_icon_study.png');
+                        background-size: $backgroundSize;
+                    }
+                }
+                .con2{
+                    .jczx_pic1{
+                        background: url('../assets/themeBoy/index_icon_train.png');
+                        background-size: $backgroundSize;
+                    }
+                }
+                .arrows{
+                    background: url('../assets/themeBoy/index_icon_arrows.png');
+                    background-size: $backgroundSize;
+                }
+                .con3{
+                    .jczx_pic2{
+                        background: url('../assets/themeBoy/index_icon_test.png');
+                        background-size: $backgroundSize;
+                    }
+                    .label{
+                        right: 6px;
+                    }
+                    .lable_blue {
+                        background: url("../assets/themeBoy/index_image_label_blue.png");
+                        background-size: 100% 100%;
+                        span{
+                            color: #ffffff;
+                        }
+                    }
+                    .lable_gray {
+                        background: url("../assets/themeBoy/index_image_label_gray.png");
+                        background-size: 100% 100%;
+                        span{
+                            color: #3A536C;
+                        }
+                    }
+                    .lable_red {
+                        background: url("../assets/themeBoy/index_image_label_green.png");
+                        background-size: 100% 100%;
+                        span{
+                            color: #ffffff;
+                        }
+                    }
+                }
+            }
+        }
+        .center_right{
+            background: url('../assets/themeBoy/review_background_image.png');
+            background-size: $backgroundSize;
+            box-shadow:$box-shadow;
+            .title{
+                color: $colorWhite;
+            }
+            .jcxx,.jjxl{
+                .jcxx_top{
+                    span{
+                        color: $colorWhite;
+                    }
+                    .KnowledgeDetails:hover{
+                        color: $hoverColor;
+                    }
+                    .KnowledgeDetails:hover~i{
+                        background: url('../assets/themeBoy/index_icon_more_hover.png');
+                        background-size: $backgroundSize;
+                    }
+                    i{
+                        background: url('../assets/themeBoy/index_icon_more.png');
+                        background-size: $backgroundSize;
+                    }
+                }
+                .jcxx_con{
+                    li{
+                        border-bottom: 1px dashed #00C0FF;
+                        span{
+                            color: $colorWhite;
+                        }
+                    }
+                }
+                .znfuxi{
+                    background: url('../assets/themeBoy/btn_review_normal.png');
+                    background-size: $backgroundSize;
+                    width: 185px;
+                    height: 50px;
+                    &:hover{
+                        background: url('../assets/themeBoy/btn_review_hover.png');
+                        background-size: $backgroundSize;
+                    }
+                }
+                .znfuxi::after{
+                    content: '';
+                }
+            }
+        }
+        .bottom{
+            .kun{
+                display: none;
+            }
+            background: $transparent;
+            p{
+                margin-top: 8px;
+                font-size: 12px;
+                color: $colorWhite;
+            }
+        }
+    }
+}
+
+
+/*女孩主题样式*/
+
+.themeGirl {
+    $backgroundSize:100% 100%;
+    $transparent:transparent;
+    $colorWhite:#ffffff;
+    $box-shadow:none;
+    $hoverColor:#3EFCE8;
+    .bodyHome{
+        background: url('../assets/themeGirl/_s-image_background_pink.png');
+        background-size: $backgroundSize;
+        .header{
+            background: $transparent;
+            .head_main{
+                background: $transparent;
+                .mit_book{
+                    &:hover .name{
+                        color: $hoverColor;
+                    }
+                    &:hover .icon_book{
+                        background: url('../assets/themeGirl/index_icon_errorbook_hover.png');
+                        background-size: $backgroundSize;
+                    }
+                }
+                .report_book{
+                    &:hover .name{
+                        color: $hoverColor;
+                    }
+                    &:hover .icon_report{
+                        background: url('../assets/themeGirl/index_icon_report_hover.png');
+                        background-size: $backgroundSize;
+                    }
+                }
+                .mit_book,.report_book{
+                    .personalCenter{
+                        overflow: hidden;
+                        ul{
+                            box-shadow:$box-shadow;
+                            background: #FD5F97;
+                            li{
+                                span{
+                                    color: #FEFFFF;
+                                }
+                                &:hover{
+                                    background: rgba($color: #ffffff, $alpha: 0.2);
+                                }
+                                .icon_glodList{
+                                    background: url('../assets/themeBoy/index_icon_ranklist_blue.png');
+                                }
+                                .icon_glodMall{
+                                    background: url('../assets/themeBoy/index_icon_shoppingmall_blue.png');
+                                }
+                                .icon_communication{
+                                    background: url('../assets/themeBoy/index_icon_interaction.png');
+                                }
+                                .icon_feedBack{
+                                    background: url('../assets/themeBoy/index_icon_feedback_blue.png');
+                                }
+                                .icon_classDynamic{
+                                    background: url('../assets/themeBoy/index_icon_classstate.png');
+                                }
+                                .icon_loginReward{
+                                    background: url('../assets/themeBoy/index_icon_loginaward_blue.png');
+                                }
+                                .icon_mitbook{
+                                    background: url('../assets/themeBoy/index_icon_mistickBook_blue.png');
+                                }
+                                .icon_reportbook{
+                                    background: url('../assets/themeBoy/index_icon_learnSport_blue.png');
+                                }
+                                .icon_honer{
+                                    background: url('../assets/themeBoy/index_icon_myhonor_blue.png');
+                                }
+                                .icon_userInfo{
+                                    background: url('../assets/themeBoy/index_icon_personalData_blue.png');
+                                }
+                                .icon_collection{
+                                    background: url('../assets/themeBoy/index_icon_collection_blue.png');
+                                }
+                            }
+                        }
+                    }
+                }
+                .close{
+                    &:hover .icon_close{
+                        background: url('../assets/themeGirl/index_icon_close.png');
+                        background-size: $backgroundSize;
+                    }
+                }
+            }
+        }
+        .center_top{
+            background: url('../assets/themeGirl/index_head_background_image_pink.png');
+            background-size: $backgroundSize;
+            box-shadow:$box-shadow;
+            .kc,.gdkc,.kcjd,.center_top_right{
+                color: $colorWhite;
+                & span:hover {
+                    color: $hoverColor;
+                }
+            }
+            .gdkc{
+                &:hover{
+                    color: $hoverColor;
+                }
+            }
+            .gdkc:hover~i.toggle_icon {
+                background: url("../assets/themeGirl/index_icon_toggle_hover.png");
+                background-size: $backgroundSize;
+            }
+            .toggle_icon{
+                background: url('../assets/themeGirl/index_icon_toggle_normal.png');
+                background-size: $backgroundSize;
+            }
+            .jdt{
+                background: rgba($color: #fff, $alpha: 0.3);
+                .jdted{
+                    background: #fff;
+                }
+            }
+            .changekecheng{
+                box-shadow: $box-shadow;
+                background: #FD5F97;
+                ul{
+                    li{
+                        span{
+                            color: $colorWhite;
+                        }
+                        &:hover{
+                            background: rgba($color: #fff, $alpha: 0.2);
+                            span{
+                                color: $hoverColor;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        .center_left{
+            background: url('../assets/themeGirl/index_study_background_image_pink.png');
+            background-size: $backgroundSize;
+            box-shadow:$box-shadow;
+            .title{
+                color: $colorWhite;
+            }
+            .xx_top{
+                .xx_top_left_title{
+                    color: $colorWhite;
+                }
+                .toggle_icon{
+                    background: url('../assets/themeGirl/index_icon_toggle_normal.png');
+                    background-size: $backgroundSize;
+                }
+                .xx_top_right{
+                    span{
+                        color: $colorWhite;
+                        &:hover{
+                            color: $hoverColor;
+                        }
+                    }
+                }
+                .xx_top_aside {
+                    box-shadow: $box-shadow;
+                    background: #FD5F97;
+                    ul{
+                        li{
+                            .text{
+                                color: $colorWhite;
+                            }
+                            &:hover{
+                                background: rgba($color: #fff, $alpha: 0.2);
+                                .text{
+                                    color: $hoverColor;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            .section_left{
+                .xz_li{
+                    .text{
+                        color: $colorWhite;
+                    }
+                }
+                .xz_li{
+                    &:hover{
+                        background: rgba($color: #fff, $alpha: 0.2);
+                        .text{
+                            color: $hoverColor;
+                        }
+                    }
+                }
+                .sectionselected{
+                    background: rgba($color: #fff, $alpha: 0.2);
+                    .text{
+                        color: $hoverColor;
+                    }
+                }
+            }
+            .section_right{
+                .xx_center_top{
+                    .xx_top_left_title{
+                        color: $colorWhite;
+                    }
+                }
+                .con1,.con2,.con3{
+                    background: url('../assets/themeGirl/index_basicsty_image.png');
+                    background-size: $backgroundSize;
+                    box-shadow:$box-shadow;
+                    .con_div_top{
+                        span{
+                            color: $colorWhite !important;
+                        }
+                    }
+                }
+                .con1{
+                    .jczx_pic{
+                        background: url('../assets/themeGirl/index_icon_study.png');
+                        background-size: $backgroundSize;
+                    }
+                }
+                .con2{
+                    .jczx_pic1{
+                        background: url('../assets/themeGirl/index_icon_train_gray.png');
+                        background-size: $backgroundSize;
+                    }
+                }
+                .arrows{
+                    background: url('../assets/themeGirl/index_icon_arrows.png');
+                    background-size: $backgroundSize;
+                }
+                .con3{
+                    .jczx_pic2{
+                        background: url('../assets/themeGirl/index_icon_test.png');
+                        background-size: $backgroundSize;
+                    }
+                    .label{
+                        top: 2px;
+                        right: 2px;
+                    }
+                    .lable_blue {
+                        background: url("../assets/themeGirl/index_image_label_yellow.png");
+                        background-size: 100% 100%;
+                        span{
+                            color: #fff;
+                        }
+                    }
+                    .lable_gray {
+                        background: url("../assets/themeGirl/index_image_label_gray.png");
+                        background-size: 100% 100%;
+                        span{
+                            color: #FB6299;
+                        }
+                    }
+                    .lable_red {
+                        background: url("../assets/themeGirl/index_image_label_blue.png");
+                        background-size: 100% 100%;
+                        span{
+                            color: #fff;
+                        }
+                    }
+                }
+            }
+        }
+        .center_right{
+            background: url('../assets/themeGirl/index_review_background_image_pink.png');
+            background-size: $backgroundSize;
+            box-shadow:$box-shadow;
+            .title{
+                color: $colorWhite;
+            }
+            .jcxx,.jjxl{
+                .jcxx_top{
+                    span{
+                        color: $colorWhite;
+                    }
+                    .KnowledgeDetails:hover{
+                        color: $hoverColor;
+                    }
+                    .KnowledgeDetails:hover~i{
+                        background: url('../assets/themeGirl/index_icon_more_hover.png');
+                        background-size: $backgroundSize;
+                    }
+                    i{
+                        background: url('../assets/themeGirl/index_icon_more_normal.png');
+                        background-size: $backgroundSize;
+                    }
+                }
+                .jcxx_con{
+                    span{
+                        color: $colorWhite;
+                    }
+                }
+            }
+        }
+        .bottom{
+            .kun{
+                display: none;
+            }
+            background: $transparent;
+            p{
+                margin-top: -8px;
+                color: $colorWhite;
+            }
+        }
+    }
+}
+
+
+/*默认主题样式*/
+
+// .themeDefault {
+//     background: #e7f7ff;
+//     .center_top {
+//         background: #ffffff;
+//     }
+// }
