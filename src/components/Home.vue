@@ -5,7 +5,7 @@
       <div class="main head_main">
         <div class="logo">
 <!--          <img src="../assets/images/favicon.png" alt="">-->
-          <img src="../assets/logal@2x.png" alt="">
+          <img style="width:193px;height:43px;" src="../assets/logal@2x.png" alt="">
 <!--          <h1 style="color: white;">红杉树培训系统</h1>-->
         </div>
         <div class="header_right">

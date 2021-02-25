@@ -3,7 +3,7 @@
     <div class="contain">
       <div class="top">
         <div class="logo">
-          <img style="width:148px;height:32px;" src="../assets/logo@2x.png" alt />
+          <img style="width:193px;height:43px;" src="../assets/logo@2x.png" alt />
         </div>
         <div class="Product_introduction" @click="GoProduct()">产品介绍</div>
       </div>
@@ -87,9 +87,9 @@ export default {
       username: "",
       password: "",
       banner: [
-        require("../assets/banner03@2x.png"),
-        require("../assets/banner01.png"),
-        require("../assets/banner02.png"),
+        require("../assets/banner@2x.png"),
+        // require("../assets/banner01.png"),
+        // require("../assets/banner02.png"),
       ],
       userinfo:'',
     };
