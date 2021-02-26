@@ -2,7 +2,7 @@
   <div class="Coursereport">
     <Top :name="name" :learnname="learnname" />
     <section class="content">
-      <h3 class="titleName">课程报告<span>({{userName}})</span></h3>
+      <!--<h3 class="titleName">课程报告<span>({{userName}})</span></h3>-->
       <div class="learnSitution">
         <p><span class="learnName">学习课程数：</span><span class="learnNum">{{countStudyCourse}}</span><span class="learnName">个</span></p>
         <p><span class="learnName">共观看视频：</span><span class="learnNum">{{countWatchVideo}}</span><span class="learnName">个</span></p>
@@ -27,9 +27,9 @@
           <span class="charpterName">{{item.chapterName}}</span>
           <p class="sectionStatusList">
             <i
-            :class="['status',item.status==4?'el-icon-error':item.status==3?'el-icon-over':item.status==2?'el-icon-time':item.status==1?'el-icon-success':'el-icon-normal']"
+            :class="['status',item.status==4?'el-icon-error':item.status==3?'el-icon-success':item.status==2?'el-icon-time':item.status==1?'el-icon-over':'el-icon-normal']"
             v-for="(item,index) in item.userSections" :key="index"
-            :title="item.status==4?'为测评通过':item.status==3?'已测评通过':item.status==2?'正在学习':item.status==1?'已学完':'未学'"></i>
+            :title="item.status==4?'未测评通过':item.status==3?'已测评通过':item.status==2?'正在学习':item.status==1?'已学完':'未学'"></i>
           </p>
         </div>
       </div>
@@ -105,7 +105,7 @@ export default {
       }
     }
     .learnSitution{
-      margin-top: 20px;
+      /*margin-top: 20px;*/
       display: flex;
       align-items: center;
       p{
@@ -176,7 +176,7 @@ export default {
           text-overflow: ellipsis;
         }
         .sectionStatusList{
-          margin-left: 20px;
+          margin-left: 100px;
           display: flex;
           align-items: center;
           .status{

@@ -3,9 +3,9 @@
     <div class="contain">
       <div class="top">
         <div class="logo">
-          <img style="width:193px;height:43px;" src="../assets/logo@2x.png" alt />
+          <img style="width:231px;height:54px;" src="../assets/logo@2x.png" alt />
         </div>
-        <div class="Product_introduction" @click="GoProduct()">产品介绍</div>
+        <!--<div class="Product_introduction" @click="GoProduct()">产品介绍</div>-->
       </div>
       <div class="content_Login">
         <!-- 轮播图块 -->
@@ -19,7 +19,7 @@
         <!-- login块 -->
         <div class="login">
           <div class="title">
-            <h3>红杉树培训系统</h3>
+            <h3>欢迎登录</h3>
           </div>
           <div class="username">
             <input
@@ -281,7 +281,7 @@ export default {
     position: absolute;
     left: 21px;
     top: 50%;
-    margin-top: -12px;
+    margin-top: -7px;
   }
   .el-user {
     background: url("../assets/landing_icon_account.png");

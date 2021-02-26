@@ -5,7 +5,7 @@
       <div class="main head_main">
         <div class="logo">
 <!--          <img src="../assets/images/favicon.png" alt="">-->
-          <img style="width:193px;height:43px;" src="../assets/logal@2x.png" alt="">
+          <img style="" src="../assets/logal@2x.png" alt="">
 <!--          <h1 style="color: white;">红杉树培训系统</h1>-->
         </div>
         <div class="header_right">
@@ -65,13 +65,13 @@
           <div class="section_left">
             <h3 class="h3">章节列表</h3>
             <div class="chapterList">
-              <section class="chapter" @click="switchChapter(chapterIndex,chapterItem)" :class="chapterItem.id==chapterId?'isChapter':''" v-for="(chapterItem,chapterIndex) in userStudyCourseInfo.chapters" :key="chapterIndex">
-                <p class="chapter_p">
-                  <span class="chapterName">{{chapterItem.chapterName}}</span>
+              <section class="chapter" @click="switchChapter(chapterIndex,chapterItem,$event)" :class="chapterItem.id==chapterId?'isChapter':''" v-for="(chapterItem,chapterIndex) in userStudyCourseInfo.chapters" :key="chapterIndex">
+                <p class="chapter_p" @mouseenter="mouseenter($event)" @mouseleave="mouseleave($event)" :title="chapterItem.chapterName">
+                  <span class="chapterName text"><span>{{chapterItem.chapterName}}</span></span>
                   <i class="chapter_icon" :class="chapterItem.id==chapterId?'el-icon-arrow-up':'el-icon-arrow-down'"></i>
                 </p>
                 <ul class="sectionList">
-                  <li @click.stop="switchSection(sectionIndex,sectionItem)" class="section" :class="[chapterItem.id==chapterId&&sectionItem.id==sectionId?'isSection':'']" v-for="(sectionItem,sectionIndex) in chapterItem.sections" :key="sectionIndex">
+                  <li style="margin-top: 10px;" @click.stop="switchSection(sectionIndex,sectionItem)" class="section" :class="[chapterItem.id==chapterId&&sectionItem.id==sectionId?'isSection':'']" v-for="(sectionItem,sectionIndex) in chapterItem.sections" :key="sectionIndex">
                     <p @mouseenter="mouseenter($event)" @mouseleave="mouseleave($event)" :title="sectionItem.sectionName">
                       <span class="text"><span>{{sectionItem.sectionName}}</span></span>
                     </p>
@@ -130,6 +130,7 @@ export default {
       sectionName:'',//小节名称
       sectionId:'',//小节Id
       chapterId:'',//章Id
+      chapterName: '',//章名称
       sectionScore:''//节得分
     };
   },
@@ -186,8 +187,21 @@ export default {
       this.findUserSectionScore();
     },
     //切换章节
-    switchChapter(chapterIndex,chapterItem){
-      this.chapterId = chapterItem.id
+    switchChapter(chapterIndex,chapterItem,e){
+      if (this.chapterId == chapterItem.id) {
+        this.chapterId = -1
+        $(e.target).closest('p').siblings('.sectionList').css('transition', 'all 0.5s')
+        $(e.target).closest('p').siblings('.sectionList').height(-20)
+        // $(e.target).closest('p').siblings('.sectionList').css('padding-top', '0')
+      } else {
+        this.chapterId = chapterItem.id
+        $(e.target).closest('p').siblings('.sectionList').css('transition', 'all 0.5s');
+        $(e.target).closest('p').siblings('.sectionList').height(chapterItem.sections.length * 34)
+        $(e.target).closest('section').siblings().find('.sectionList').height(-20)
+        // $(e.target).closest('p').siblings('.sectionList').css('padding-top', '20px');
+        // $(e.target).closest('section').siblings().find('.sectionList').css('padding-top','0')
+      }
+      // this.chapterId = chapterItem.id
       this.sectionId = chapterItem.sections[0].id
       this.sectionName = chapterItem.sections[0].sectionName
       this.findUserSectionScore();
@@ -277,6 +291,16 @@ export default {
           });
         });
         this.sectionName = res.data.data.lastStudySectionId == null ? this.userStudyCourseInfo.chapters[0].sections[0].sectionName : lastSectionName;
+        var length = 0;
+        this.userStudyCourseInfo.chapters.forEach((value,index)=>{
+          if(value.id == this.chapterId){
+            length = value.sections.length
+          }
+        })
+        setTimeout(()=>{
+          $('.isChapter').children('.sectionList').height(length*34)
+          $('.isChapter').children('.sectionList').css('padding-top','20px')
+        })
       }
     },
     //查询用户本节测评得分
@@ -404,10 +428,6 @@ export default {
     .logo {
         display: flex;
         align-items: center;
-        img{
-          width: 148px;
-          height: 32px;
-        }
     }
     .header_right {
         float: right;
@@ -582,7 +602,6 @@ export default {
         color: #666666;
         height: 100%;
         line-height: 32px;
-        cursor: pointer;
         display: flex;
         margin-left: 50px;
         .center_top_right_span {
@@ -627,9 +646,12 @@ export default {
                 }
                 .sectionList{
                     font-weight: normal;
-                    display: none;
+                    /*display: none;*/
                     margin-top: 4px;
                     padding-left: 24px;
+                    overflow: hidden;
+                  transition: all 0.5s;
+                  height: 0;
                     .section{
                         padding-left:20px;
                         color: #999;
@@ -824,6 +846,21 @@ export default {
       transform: rotate(46deg);
       right: -15px;
       position: absolute;
+    }
+    .text {
+      display: inline-block;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      width: 158px;
+      position: relative;
+      height: 22px;
+      span {
+        overflow: hidden;
+        transition: left 1s;
+        position: initial;
+        left: 0;
+      }
     }
 }
 </style>
