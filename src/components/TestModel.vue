@@ -53,7 +53,7 @@
           </div>
           <div class="multipleChoiceQuestionList questionType" v-if="multipleChoiceQuestionList!=''">
             <h4 class="dati_title">二.多选题</h4>
-            <div class="" v-for="(item,index) in multipleChoiceQuestionList" :key="index" >
+            <div class="di1_copy" v-for="(item,index) in multipleChoiceQuestionList" :key="index" >
               <h5 class="title">
                 <span style="float: left;">{{index+1}}.</span>
                 <span class="titleQuestion" v-html="item.question" :id="'di1'+index"></span>
@@ -180,14 +180,14 @@
               </div>
             </div>
             <div v-if="multipleChoiceQuestionList!=''">
-              <h4 class="dati_title" style="margin-top: 15px;">二.填空题</h4>
+              <h4 class="dati_title" style="margin-top: 15px;">二.多选题</h4>
               <div class="dtk_xx">
                 <a
                   v-for="(itemlistTyperadio,index2) in multipleChoiceQuestionList"
                   :key="index2"
                   class="span1 xx_span1"
                   :href="'#di3'+index2"
-                  :title="'点击跳到填空题的第'+(index2+1)+'题'"
+                  :title="'点击跳到多选题的第'+(index2+1)+'题'"
                   :class="(input.radios[index2]==null||input.radios[index2]=='')?'':'color1'+ ' '+ index2"
                 >{{index2+1}}</a>
               </div>
@@ -196,25 +196,25 @@
               <h4 class="dati_title" style="margin-top: 15px;">三.填空题</h4>
               <div class="dtk_xx">
                 <a
-                  v-for="(itemlistTyperadio,index2) in completionList"
-                  :key="index2"
+                  v-for="(itemlistTyperadio,index3) in completionList"
+                  :key="index3"
                   class="span1 xx_span1"
-                  :href="'#di3'+index2"
-                  :title="'点击跳到填空题的第'+(index2+1)+'题'"
+                  :href="'#di3'+index3"
+                  :title="'点击跳到填空题的第'+(index3+1)+'题'"
                   :class="(input.input1[itemlistTyperadio.id]==null||input.input1[itemlistTyperadio.id]=='')?'':'color1'+ ' '+itemlistTyperadio.id"
-                >{{index2+1}}</a>
+                >{{index3+1}}</a>
               </div>
             </div>
             <div v-if="judgmentQuestionList!=''">
               <h4 class="dati_title" style="margin-top: 15px;">四.判断题</h4>
               <div class="dtk_xx">
                 <a class="span1 xx_span5"
-                  v-for="(itemlistTyperadio,index3) in judgmentQuestionList"
+                  v-for="(itemlistTyperadio,index4) in judgmentQuestionList"
                   :class="input.trueOrfalse[itemlistTyperadio.id]==null?'':'color1'+ ' '+itemlistTyperadio.id"
-                  :key="index3"
-                  :href="'#di5'+index3"
-                  :title="'点击跳到判断题的第'+(index3+1)+'题'"
-                >{{index3+1}}</a>
+                  :key="index4"
+                  :href="'#di5'+index4"
+                  :title="'点击跳到判断题的第'+(index4+1)+'题'"
+                >{{index4+1}}</a>
               </div>
             </div>
             <div v-if="operationQuestionList != ''">
@@ -787,6 +787,7 @@ export default {
           display: none;
         }
         .el-checkbox__label{
+          font-size: 18px !important;
           span{
             color: #1a1a1a;
           }
@@ -1045,6 +1046,10 @@ export default {
   }
 
   .di1 {
+    margin-top: 32px;
+  }
+
+  .di1_copy{
     margin-top: 32px;
   }
 
